@@ -6,12 +6,12 @@ class Solution {
         if(a1>s.length()/2||a1>s.length()/2||i>=s.length()){
             return;
         }
-        a[i]=0;
+/*        a[i]=0;
         if(a1==s.length()/2){
             if(judge(a,s)){
                 result++;
             }
-        }
+        }*/
         dfs(a,i+1,a1+1,b1,s);
         a[i]=1;
         if(b1==s.length()/2){
