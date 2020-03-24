@@ -3,23 +3,27 @@ package solution106;
 class Solution {
     public int result =0;
     public void dfs(int a[],int i,int a1,int b1,String s){
-        if(a1>s.length()/2||a1>s.length()/2||i>=s.length()){
+        if(a1>s.length()/2||b1>s.length()/2||i>=s.length()){
             return;
         }
-/*        a[i]=0;
-        if(a1==s.length()/2){
-            if(judge(a,s)){
-                result++;
-            }
-        }*/
+        // if(i==s.length()){
+        //     return;
+        // }
+        // a[i]=0;
+        // if(a1==s.length()/2){
+        //     if(judge(a,s)){
+        //         result++;
+        //     }
+        // }
         dfs(a,i+1,a1+1,b1,s);
         a[i]=1;
-        if(b1==s.length()/2){
+        if(b1==s.length()/2-1){
             if(judge(a,s)){
                 result++;
             }
         }
         dfs(a,i+1,a1,b1+1,s);
+        a[i]=0;
     }
     public static String reverse1(String str)
     {
@@ -32,7 +36,7 @@ class Solution {
             if(a[i]==1){
                 A+=s.charAt(i);
             }
-            else{
+            if(a[i]==0){
                 B+=s.charAt(i);
             }
         }
@@ -45,7 +49,7 @@ class Solution {
         if(A.equals(B)){
             return true;
         }
-        return true;
+        return false;
     }
     public long solution(int n, String s) {
         int a[]=new int [2*n];
