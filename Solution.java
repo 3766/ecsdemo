@@ -7,10 +7,14 @@ class Solution {
     	int mark=0;
     	for(int i=0;i<str.length();i++) {
     		location=str.indexOf(str.charAt(k),location);
+            if(location==-1){
+                return -1;
+            }
     		if(a[i]==1) {
     			mark++;
     		}
     	}
+
     	String s="";
     	s+=str.charAt(k);
     	return find(str,s,mark);
@@ -20,6 +24,9 @@ class Solution {
     	int location=0;
     	for(int i=0;i<num;i++) {
     		location=str.indexOf(s,location);
+            if(location==-1){
+                return -1;
+            }
     	}
     	return location;
     }
@@ -52,6 +59,9 @@ class Solution {
         
 //        int b[]=new int [8];
         int mark=look(a,i,s);
+        if(mark==-1){
+            return;
+        }
         b[mark]=1;
         if(b1==s.length()/2-1){
             if(judge(a,s)){
